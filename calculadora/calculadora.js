@@ -19,6 +19,50 @@ const updateDisplay = () => {
 
 updateDisplay()
 
+const inputDigit = (digit) =>{
+    const {displayValue, waitingForSecondOperand} = calculator;
+
+
+    if(waitingForSecondOperand === true){
+        calculator.displayValue = digit;
+        calculator.waitingForSecondOperand = false;
+    }else{
+        calculator.displayValue = displayValue === "0" ? digit : displayValue + digit;
+    }
+    
+    console.log(calculator)
+}
+
+const inputDecimal = (dot) =>{
+      // If the `displayValue` property does not contain a decimal point
+    if (!calculator.displayValue.includes(dot)) {
+        // Append the decimal point
+        calculator.displayValue += dot;
+    }
+}
+
+function handleOperator (nextOperator){
+    
+        // Destructure the properties on the calculator object
+        const { firstOperand, displayValue, operator } = calculator
+        // `parseFloat` converts the string contents of `displayValue`
+        // to a floating-point number
+        const inputValue = parseFloat(displayValue);
+
+        // verify that `firstOperand` is null and that the `inputValue`
+        // is not a `NaN` value
+        if (firstOperand === null && !isNaN(inputValue)) {
+          // Update the firstOperand property
+            calculator.firstOperand = inputValue;
+        }
+
+        calculator.waitingForSecondOperand = true;
+        calculator.operator = nextOperator;
+
+}
+
+
+
 //keys
 const keys = document.querySelector(".calculator-keys");
 
@@ -35,7 +79,9 @@ keys.addEventListener('click', (e)=>{
     }
 
     if(target.matches(".operator")){
-        console.log(target.value,"operator")
+        console.log(target.value,"operator");
+        handleOperator(target.value);
+        updateDisplay();    
         return;
     }
 
@@ -61,30 +107,5 @@ keys.addEventListener('click', (e)=>{
 
     });
 
-const inputDigit = (digit) =>{
-    const {displayValue} = calculator;
+}//cierra window onload
 
-    calculator.displayValue = displayValue === "0" ? digit : displayValue + digit;
-
-}
-
-const inputDecimal = (dot) =>{
-      // If the `displayValue` property does not contain a decimal point
-    if (!calculator.displayValue.includes(dot)) {
-        // Append the decimal point
-        calculator.displayValue += dot;
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-};
