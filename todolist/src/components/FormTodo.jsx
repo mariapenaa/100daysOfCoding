@@ -1,10 +1,22 @@
 import React from "react";
 import { useState } from 'react';
 
-const FormTodo = () => {
-  const [description, setDescription] = useState("")
+const FormTodo = (props) => {
+  const [description, setDescription] = useState("");
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(description)
+     /*  handleAddItem({
+        done:false,
+        date:(+new Date()).toString,
+        description
+      }); */
+    setDescription("")
+  }
 	return (
-    <form>
+    <form
+      onSubmit={handleSubmit}
+    >
       <div className="todo-list">
         <div className="file-input">
           <input 
