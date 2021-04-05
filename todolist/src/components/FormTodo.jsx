@@ -3,16 +3,19 @@ import { useState } from 'react';
 
 const FormTodo = (props) => {
   const [description, setDescription] = useState("");
+  const { handleAddItem } = props;
   const handleSubmit = (e) =>{
     e.preventDefault();
     console.log(description)
-     /*  handleAddItem({
+        
+    handleAddItem({
         done:false,
         date:(+new Date()).toString,
         description
-      }); */
+      });
     setDescription("")
   }
+  
 	return (
     <form
       onSubmit={handleSubmit}
