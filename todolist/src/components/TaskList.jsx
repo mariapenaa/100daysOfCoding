@@ -13,7 +13,7 @@ const TaskList = (props) => {
     }));
 
     setList(updateList)
-  }
+  };
 
   const chk = list.map(item => (
       <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
@@ -36,8 +36,7 @@ const TaskList = (props) => {
         </p>
 
       ) : null}
-      TaskList!
-      <Checkbox />
+
     </div>
   );
 };
