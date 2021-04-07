@@ -14,15 +14,15 @@ const TaskList = (props) => {
 
     setList(updateList)
   };
-
-  const chk = list.map(item => (
-      <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
-    ));
-
+  
   const onClickRemoveItem = (e) =>{
     const updateList = list.filter(item => !item.done);
     setList(updateList);
   };
+  const chk = list.map(item => (
+      <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+    ));
+
 
   return (
     <div className='todo-list'>
