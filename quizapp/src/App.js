@@ -79,7 +79,7 @@ function App() {
 						<div className='answer-section'>
 							{questions[currentQuestion].answerOptions.map((answerOption, index)=>(
 							<button onClick={()=>handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-							))};
+							))}
 						</div>
 
 				</>
