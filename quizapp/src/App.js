@@ -45,25 +45,49 @@ function App() {
 
   //What we want to do is use a state object to hold which question the user is currently on, 
   //and update this when an answer button is clicked. You can see this from running the code in the final example.
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answer, setAnswer] = useState();
-  const [score, setScore] = useState(); 
+	const [currentQuestion, setCurrentQuestion] = useState(0)
+	const [score, setScore] = useState(0);
+	const [showScore, setShowScore] = useState(false); 
 
+	const handleAnswerButtonClick = (isCorrect) =>{
+		const nextQuestion = currentQuestion + 1;
+		if(nextQuestion < questions.length){
+			setCurrentQuestion(nextQuestion);
+		}else{
+			setShowScore(true)
+		}
 
-  return (
-    <div className="app">
-      <p>Quiz app</p>
+		if(isCorrect){
+			setScore(score+1)
+		}
+	}
 
-      <div className='question-text'>{questions[currentQuestion].questionText}</div>
-      <div className='answer-section'>
-        {questions[currentQuestion].answerOptions.map((answerOption, index)=>(
-            <button>{answerOption.answerText}</button>
-        ))};
-      </div>
+	return (
+		<div className="app">
+			
+			{showScore ? (
+				<div className='score-section'>You scored {score} out of {questions.length}</div>
+			) : (
+				<>
+			
+						<div className='question-section'>
+							<div className='question-count'>
+								<span>Question {currentQuestion+1}</span>/{questions.length}
+							</div>
+							<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						</div>
+						<div className='answer-section'>
+							{questions[currentQuestion].answerOptions.map((answerOption, index)=>(
+							<button onClick={()=>handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							))};
+						</div>
 
+				</>
+			)}
 
-    </div>
-  );
+		</div>
+	
+	)
 }
 
 export default App;
