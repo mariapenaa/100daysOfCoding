@@ -62,11 +62,19 @@ function App() {
 		}
 	}
 
+	const handleAgainClick = () =>{
+		setShowScore(false);
+		setCurrentQuestion(0)
+	}
+
 	return (
 		<div className="app">
 			
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.length}</div>
+				<>
+					<div className='score-section'>You scored {score} out of {questions.length}</div>
+					<button  onClick={()=>handleAgainClick()}>Again?</button>
+				</>
 			) : (
 				<>
 			
