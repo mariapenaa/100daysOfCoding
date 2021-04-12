@@ -1,6 +1,16 @@
 .App{
+  width:100%;
   min-height:100vh;
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+}
+
+.main-title{
+  margin:0px;
+  padding:50px  50px 10px 50px;
+  display:flex;
+  justify-content: center;
+  font-size:60px;
+  color:#f96666;
 }
 
 .search-form{
@@ -14,4 +24,19 @@
   width:50%;
   border:none;
   padding:10px;
+  border-radius:20px;
+}
+.search-button{
+  background:lightcoral;
+  padding:10px 20px;
+  color:white;
+  border:none;
+  margin:10px;
+  border-radius:20px;
+}
+
+.recipe-container{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import React, {useEffect, useState} from "react";
 import './App.css';
 import Recipe from './components/Recipe'
+import Add from './components/Add'
 
 const App = () =>{
   const APP_ID = '9c8c596f';
@@ -34,18 +35,24 @@ const App = () =>{
 
   return (
     <div className="App">
+      <h1 className="main-title">My Cookbook</h1>
       <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit" >Search</button>
       </form>
-      {recipes.map(recipe =>(
-        <Recipe 
-        name={recipe.recipe.label} 
-        image={recipe.recipe.image}
-        key={recipe.recipe.label}
-        ingredients={recipe.recipe.ingredients}
-        />
-      ))};
+      <Add />
+      <div className="recipe-container">
+        {recipes.map(recipe =>(
+          <Recipe 
+          name={recipe.recipe.label} 
+          image={recipe.recipe.image}
+          key={recipe.recipe.label}
+          ingredients={recipe.recipe.ingredients}
+          calories={recipe.recipe.calories}
+          totalTime={recipe.recipe.totalTime}
+          />
+        ))}
+      </div>
     </div>
   )
 }
