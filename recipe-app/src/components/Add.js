@@ -5,7 +5,9 @@ import style from '../css-modules/add.module.css'
 const Add = ()=>{
 
     return(
-        <h2>hEy</h2>
+        <div className={style.container} >
+            <button className={style.button}>Add</button>
+        </div>
     )
 
 }
