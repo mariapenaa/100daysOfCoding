@@ -13,7 +13,6 @@ const QuoteAndAuthor = (props) =>{
                 <button
                     onClick={()=>{generate(quotes)}}
                     type="submit">
-                        <i class="fas fa-mouse"></i> 
                         Generate Quote
                 </button>
 
