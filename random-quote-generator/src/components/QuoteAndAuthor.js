@@ -1,0 +1,36 @@
+import React from 'react';
+import quotes from '../QuoteDB';
+
+const QuoteAndAuthor = (props) =>{
+    const {quote, generate} = props;
+
+    return(
+        <div className="card">
+            <div className="card-body">
+                <p className="card-text">{quote.quote}</p>
+                <h5 className="card-title">-{quote.author}</h5>
+
+                <button
+                    onClick={()=>{generate(quotes)}}
+                    type="submit">
+                        <i class="fas fa-mouse"></i> 
+                        Generate Quote
+                </button>
+
+                <button
+                    className="ml-3"
+                    onClick={()=>{
+                        generate(quotes);
+                        window.open('https://twitter.com/intent/tweet/?text=' + encodeURIComponent(quote.quote + '--' + quote.author))
+                    }}
+                    type="submit">
+                        <i class="fab fa-twitter"></i> 
+                        Share Quote
+                    </button>
+            </div>
+        </div>
+    )
+
+}
+
+export default QuoteAndAuthor;
