@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+
+.App{
+  width:100%;
+  margin:0px;
+  padding:0px;
+  position:absolute;
+  /* background: url("fondo.jpeg")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  background-color:white;
+  height:100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav{
+  width:100%;
+  margin:0px;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  justify-content: space-between;
+  position:fixed;
+  background-color: white;
+  height:16%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.navlist{
+  list-style: none;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
   align-items: center;
+  padding:0px 20px;
+}
+.navlist li{
+  margin:10px;
+}
+.navlist ul{
+  list-style: none;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  list-style:none;
+  padding:0px;
+}
+
+.cardcontainer{
+  margin:16% 0px;
+
+}
+
+.nosotros{
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width:100%;
+  height:100vh;
+
 }
 
-.App-link {
-  color: #61dafb;
+.titulosnosotros{
+  display:flex;
+  flex-direction: column;
+  justify-content: left;
+  width:65%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.titulo{
+  color:#227EA9;
+  font-size:4.2vw;
+  font-weight: bold;
+  margin:0px 0px 20px 0px;
+
+  
+}
+
+.subtitulo{
+  font-size:2vw;
+  margin-top:10px;
+  margin-bottom:30px;
+  font-weight:200;
+}
+
+.download{
+  background-color: #227EA9;
+  border:none;
+  border-radius:25px;
+  padding:10px 20px;
+  color:white;
+  font-size:1.8vw;
+  width:30%;
+}
+
+.informacion{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content:center ;
+  background-color:#D8E1E5;
+  width:100%;
+  height:63vh;
+}
+
+.informacionlist{
+  width:100%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  list-style:none;
+  padding:0px;
+}
+
+.informacionlist li{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  padding:0px 50px;
+  width:30%;
+}
+
+p.informacion-texto{
+  font-size:2.3vw;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.informacion img{
+  width:40%;
 }
